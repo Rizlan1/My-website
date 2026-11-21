@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nocturne Barbers — Fitzroy, Melbourne</title>
+<meta name="description" content="Nocturne is a late-night barbershop in a Fitzroy laneway. Skin fades, tapers, crops, mullets, beard sculpting and hot towel shaves until 10pm.">
+<meta name="theme-color" content="#07070b">
+<meta property="og:title" content="Nocturne Barbers — Precision after dark">
+<meta property="og:description" content="A late-night barbershop in a Melbourne laneway.">
+<meta property="og:image" content="assets/img/room.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2307070b'/%3E%3Cpath d='M20 46V18l24 28V18' stroke='%23d4874e' stroke-width='5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter+Tight:wght@300..800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true"><span></span></div>
+<canvas id="gl" aria-hidden="true"></canvas>
+
+<div class="loader" aria-hidden="true">
+  <div class="loader__mark">N</div>
+  <div class="loader__bar"><i></i></div>
+  <div class="loader__txt">Sharpening blades</div>
+</div>
+
+<header class="nav">
+  <a href="#top" class="nav__logo" aria-label="Nocturne home">NOCTURNE<sup>®</sup></a>
+  <nav class="nav__links" aria-label="Primary">
+    <a href="#cuts">Cuts</a>
+    <a href="#transformations">Before / After</a>
+    <a href="#kit">The Kit</a>
+    <a href="#room">Visit</a>
+  </nav>
+  <a href="#book" class="btn btn--small">Book a chair</a>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero__meta mono">
+      <span>37.8°S · 144.9°E</span>
+      <span>Fitzroy · Melbourne</span>
+      <span class="live"><i></i> Open till 10pm</span>
+    </div>
+    <h1 class="hero__title" aria-label="Nocturne">
+      <span class="split">NOCTURNE</span>
+    </h1>
+    <p class="hero__sub reveal-up">Precision cuts after dark.<br><em>A barbershop down a laneway, open while the city glows.</em></p>
+    <div class="hero__cta reveal-up">
+      <a href="#book" class="btn">Book a chair <span class="btn__arrow">→</span></a>
+      <a href="#cuts" class="btn btn--ghost">See the cuts</a>
+    </div>
+    <div class="hero__scroll mono"><span>Scroll</span><i></i></div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>Skin Fades</span><b>✦</b><span>Tapers</span><b>✦</b><span>French Crops</span><b>✦</b><span>Modern Mullets</span><b>✦</b><span>Hot Towel Shaves</span><b>✦</b><span>Beard Sculpting</span><b>✦</b><span>Curl Work</span><b>✦</b>
+      <span>Skin Fades</span><b>✦</b><span>Tapers</span><b>✦</b><span>French Crops</span><b>✦</b><span>Modern Mullets</span><b>✦</b><span>Hot Towel Shaves</span><b>✦</b><span>Beard Sculpting</span><b>✦</b><span>Curl Work</span><b>✦</b>
+    </div>
+  </div>
+
+  <!-- MANIFESTO -->
+  <section class="manifesto">
+    <p class="mono eyebrow">01 — The Ritual</p>
+    <h2 class="manifesto__text words">
+      Every cut starts with a conversation and ends with a hot towel. In between: forty-five unhurried minutes, sharp steel, and a blend so clean you'll catch yourself in every shop window on Smith Street.
+    </h2>
+    <div class="stats">
+      <div><strong data-count="12400">0</strong><span>chairs filled since 2019</span></div>
+      <div><strong data-count="4.9" data-dec="1">0</strong><span>average Google rating</span></div>
+      <div><strong data-count="45">0</strong><span>minutes, never rushed</span></div>
+    </div>
+  </section>
+
+  <!-- CUTS -->
+  <section class="cuts" id="cuts">
+    <div class="cuts__head">
+      <p class="mono eyebrow">02 — The Menu</p>
+      <h2 class="display">Pick your <em>silhouette.</em></h2>
+    </div>
+    <div class="cuts__pin">
+      <div class="cuts__track">
+        <article class="cut tilt">
+          <div class="cut__img"><img src="assets/img/after-1.jpg" alt="Mid skin fade with a textured French crop" loading="lazy"></div>
+          <div class="cut__body"><span class="mono">No. 01</span><h3>Skin Fade &amp; Crop</h3><p>Seamless zero-to-skin blend with a choppy matte top. Our bestseller.</p><div class="cut__foot"><b>$55</b><span class="mono">45 min</span></div></div>
+        </article>
+        <article class="cut tilt">
+          <div class="cut__img"><img src="assets/img/after-2.jpg" alt="Drop fade with defined curls on top" loading="lazy"></div>
+          <div class="cut__body"><span class="mono">No. 02</span><h3>Drop Fade Curls</h3><p>Fade that dips behind the ear, curls shaped and defined, never flattened.</p><div class="cut__foot"><b>$60</b><span class="mono">50 min</span></div></div>
+        </article>
+        <article class="cut tilt">
+          <div class="cut__img"><img src="assets/img/after-3.jpg" alt="Classic taper with side-part pompadour and sculpted beard" loading="lazy"></div>
+          <div class="cut__body"><span class="mono">No. 03</span><h3>Gentleman's Taper</h3><p>Scissor-over-comb taper, a hard part and volume up top. Timeless.</p><div class="cut__foot"><b>$58</b><span class="mono">45 min</span></div></div>
+        </article>
+        <article class="cut tilt">
+          <div class="cut__img"><img src="assets/img/mullet.jpg" alt="Modern textured mullet with burst fade" loading="lazy"></div>
+          <div class="cut__body"><span class="mono">No. 04</span><h3>Modern Mullet</h3><p>Burst fade around the ear, texture on top, flow at the back. Fitzroy-approved.</p><div class="cut__foot"><b>$60</b><span class="mono">50 min</span></div></div>
+        </article>
+        <article class="cut tilt">
+          <div class="cut__img"><img src="assets/img/buzz.jpg" alt="Buzz cut with skin fade and shaved design line" loading="lazy"></div>
+          <div class="cut__body"><span class="mono">No. 05</span><h3>Buzz &amp; Line</h3><p>One guard, a razor line-up and an optional hard part etched in.</p><div class="cut__foot"><b>$40</b><span class="mono">30 min</span></div></div>
+        </article>
+        <article class="cut tilt">
+          <div class="cut__img"><img src="assets/img/twoblock.jpg" alt="Two-block cut with curtain fringe" loading="lazy"></div>
+          <div class="cut__body"><span class="mono">No. 06</span><h3>Two-Block Curtains</h3><p>Disconnected undercut, soft middle part, movement that lasts all week.</p><div class="cut__foot"><b>$62</b><span class="mono">50 min</span></div></div>
+        </article>
+        <article class="cut cut--list">
+          <div class="cut__body">
+            <span class="mono">The Extras</span>
+            <h3>Finishing work</h3>
+            <ul class="extras">
+              <li><span>Hot towel straight-razor shave</span><b>$50</b></li>
+              <li><span>Beard sculpt &amp; line-up</span><b>$35</b></li>
+              <li><span>Cut + beard combo</span><b>$80</b></li>
+              <li><span>Kids (under 12)</span><b>$35</b></li>
+              <li><span>Grey blending</span><b>$30</b></li>
+              <li><span>After-dark slot (8–10pm)</span><b>+$10</b></li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANSFORMATIONS -->
+  <section class="trans" id="transformations">
+    <div class="section-head">
+      <p class="mono eyebrow">03 — Transformations</p>
+      <h2 class="display">Same chair. <em>Different man.</em></h2>
+      <p class="lede">Drag the blade across each photo. Same light, same angle, same lens, so the cut is the only thing that changes.</p>
+    </div>
+    <div class="ba-grid">
+      <figure class="ba" style="--pos:50%">
+        <img class="ba__after" src="assets/img/after-1.jpg" alt="After: mid skin fade, textured crop, sculpted beard" loading="lazy">
+        <div class="ba__before"><img src="assets/img/before-1.jpg" alt="Before: overgrown shaggy hair and patchy beard" loading="lazy"></div>
+        <div class="ba__handle" role="slider" tabindex="0" aria-label="Before and after comparison" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span>⟷</span></div>
+        <span class="ba__tag ba__tag--l mono">Before</span><span class="ba__tag ba__tag--r mono">After</span>
+        <figcaption><b>Marcus, 28</b> · Skin fade &amp; crop · 45 min</figcaption>
+      </figure>
+      <figure class="ba" style="--pos:50%">
+        <img class="ba__after" src="assets/img/after-2.jpg" alt="After: drop fade with defined curls" loading="lazy">
+        <div class="ba__before"><img src="assets/img/before-2.jpg" alt="Before: grown-out uneven curly hair" loading="lazy"></div>
+        <div class="ba__handle" role="slider" tabindex="0" aria-label="Before and after comparison" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span>⟷</span></div>
+        <span class="ba__tag ba__tag--l mono">Before</span><span class="ba__tag ba__tag--r mono">After</span>
+        <figcaption><b>Jalen, 31</b> · Drop fade curls · 50 min</figcaption>
+      </figure>
+      <figure class="ba" style="--pos:50%">
+        <img class="ba__after" src="assets/img/after-3.jpg" alt="After: classic taper, side part, sculpted grey beard" loading="lazy">
+        <div class="ba__before"><img src="assets/img/before-3.jpg" alt="Before: long messy grey hair and bushy beard" loading="lazy"></div>
+        <div class="ba__handle" role="slider" tabindex="0" aria-label="Before and after comparison" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span>⟷</span></div>
+        <span class="ba__tag ba__tag--l mono">Before</span><span class="ba__tag ba__tag--r mono">After</span>
+        <figcaption><b>David, 47</b> · Taper + beard sculpt · 70 min</figcaption>
+      </figure>
+    </div>
+    <p class="fine mono">Images are AI-generated illustrations of our styles.</p>
+  </section>
+
+  <!-- KIT -->
+  <section class="kit" id="kit">
+    <div class="section-head">
+      <p class="mono eyebrow">04 — The Kit</p>
+      <h2 class="display">Tools of <em>the trade.</em></h2>
+      <p class="lede">What sits on every station, and why. Steel is sterilised between every client and razor blades are single-use.</p>
+    </div>
+    <div class="kit__stage">
+      <img src="assets/img/tools.jpg" alt="Flat-lay of barber clippers, trimmer, shaver, straight razor, shears, combs and grooming products on black marble" loading="lazy">
+    </div>
+    <div class="kit__grid">
+      <div class="tool"><span class="mono">01</span><h4>Cordless clipper</h4><p>Magnetic motor around 6,800–7,200 RPM with a DLC-coated fade blade. Runs cool, stays sharp, keeps the bulk work clean.</p></div>
+      <div class="tool"><span class="mono">02</span><h4>T-blade trimmer</h4><p>Zero-gapped for outlines, line-ups and etched designs. It's how the edges get that razor-crisp look.</p></div>
+      <div class="tool"><span class="mono">03</span><h4>Foil shaver</h4><p>Double-foil, around 10,000 RPM. Takes a skin fade down to bare skin with no razor burn.</p></div>
+      <div class="tool"><span class="mono">04</span><h4>Straight razor</h4><p>Shavette with a fresh single-use blade for every client. Used for necklines, cheek lines and the hot towel shave.</p></div>
+      <div class="tool"><span class="mono">05</span><h4>Japanese shears</h4><p>Hand-honed stainless steel with a convex edge, plus thinning shears for texture. Every crop and every curl goes through these.</p></div>
+      <div class="tool"><span class="mono">06</span><h4>Carbon combs &amp; brushes</h4><p>Heat- and static-resistant combs, a boar-bristle fade brush and a neck duster to clear every last clipping.</p></div>
+      <div class="tool"><span class="mono">07</span><h4>Hot towel cabinet</h4><p>Towels steamed with eucalyptus to open the pores before the blade goes on.</p></div>
+      <div class="tool"><span class="mono">08</span><h4>The finish</h4><p>Matte clay, water-based pomade, sea salt spray, beard oil and an alcohol-free aftershave balm. All available to take home.</p></div>
+    </div>
+  </section>
+
+  <!-- ROOM -->
+  <section class="room" id="room">
+    <div class="room__img"><img src="assets/img/room.jpg" alt="Inside Nocturne: leather barber chairs, copper mirrors and amber light, with a rainy laneway outside" loading="lazy"></div>
+    <div class="room__card">
+      <p class="mono eyebrow">05 — Find us</p>
+      <h2 class="display">Down the lane, <em>past the mural.</em></h2>
+      <dl class="hours">
+        <div><dt>Tue – Fri</dt><dd>12pm – 10pm</dd></div>
+        <div><dt>Saturday</dt><dd>9am – 8pm</dd></div>
+        <div><dt>Sunday</dt><dd>10am – 5pm</dd></div>
+        <div><dt>Monday</dt><dd>Blades rest</dd></div>
+      </dl>
+      <p class="addr">Ember Lane, off Smith Street<br>Fitzroy VIC 3065</p>
+      <p class="mono small">Tram 86 to Gertrude St · Walk-ins welcome after 8pm</p>
+    </div>
+  </section>
+
+  <!-- BOOK -->
+  <section class="book" id="book">
+    <p class="mono eyebrow">06 — Your chair is waiting</p>
+    <h2 class="book__title"><span class="split">BOOK</span> <em class="split">tonight.</em></h2>
+    <a href="mailto:hello@example.com?subject=Booking%20at%20Nocturne" class="btn btn--big magnetic">Reserve a chair <span class="btn__arrow">→</span></a>
+    <p class="mono small">Or call (03) 9000 0000</p>
+  </section>
+</main>
+
+<footer class="foot">
+  <span>© <span id="yr"></span> Nocturne Barbers · Fitzroy, Melbourne</span>
+  <span class="mono">Made after dark</span>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="main.js" defer></script>
+<script type="module" src="scene.js"></script>
+</body>
+</html>
