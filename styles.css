@@ -85,7 +85,7 @@ main,.foot,.marquee{position:relative;z-index:2}
   .hero__scroll{display:none}.hero__meta{top:80px}
   .hero__meta span:nth-child(-n+2){display:none}
   .hero__title{font-size:12vw;white-space:nowrap}
-  .book__title{font-size:21vw}
+  .book__title{font-size:12vw}
 }
 
 /* marquee */
