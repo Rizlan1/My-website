@@ -27,6 +27,42 @@
     el.innerHTML = el.textContent.trim().split(/\s+/).map(w => `<span class="w">${w}</span>`).join(' ');
   });
 
+  /* ---------- Mobile menu ---------- */
+  const burger = $('.nav__burger'), root = document.documentElement;
+  const setMenu = open => {
+    root.classList.toggle('menu-open', open);
+    burger.setAttribute('aria-expanded', open);
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  };
+  burger.addEventListener('click', () => setMenu(!root.classList.contains('menu-open')));
+  $$('.mnav a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+  addEventListener('keydown', e => e.key === 'Escape' && setMenu(false));
+
+  /* ---------- Sticky mobile book bar ---------- */
+  const mbar = $('.mbar'), hero = $('#hero'), book = $('#book');
+  if ('IntersectionObserver' in window) {
+    let heroVis = true, bookVis = false;
+    const upd = () => mbar.classList.toggle('show', !heroVis && !bookVis);
+    new IntersectionObserver(([e]) => { heroVis = e.isIntersecting; upd(); }).observe(hero);
+    new IntersectionObserver(([e]) => { bookVis = e.isIntersecting; upd(); }, { threshold: 0.15 }).observe(book);
+  }
+
+  /* ---------- Booking request form ---------- */
+  const form = $('#bform'), msg = $('.bform__msg', form);
+  const d = new Date(); form.date.min = new Date(d - d.getTimezoneOffset() * 6e4).toISOString().slice(0, 10);
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const bad = ['name', 'service', 'date'].filter(n => !form[n].value.trim());
+    $$('input,select', form).forEach(el => el.removeAttribute('aria-invalid'));
+    bad.forEach(n => form[n].setAttribute('aria-invalid', 'true'));
+    if (bad.length) { msg.textContent = 'Please fill in your name, service and day.'; msg.classList.add('err'); form[bad[0]].focus(); return; }
+    msg.classList.remove('err');
+    const day = new Date(form.date.value + 'T12:00').toLocaleDateString('en-AU', { weekday: 'long', day: 'numeric', month: 'long' });
+    const body = `Hi Nocturne,\n\nI'd like to book:\n\nService: ${form.service.value}\nDay: ${day}\nTime: ${form.time.value}\nName: ${form.name.value.trim()}\n${form.notes.value.trim() ? '\nNotes: ' + form.notes.value.trim() + '\n' : ''}\nThanks!`;
+    location.href = `mailto:hello@example.com?subject=${encodeURIComponent('Booking request: ' + form.service.value.split(' — ')[0])}&body=${encodeURIComponent(body)}`;
+    msg.textContent = 'Opening your email app. Hit send and we will confirm by reply.';
+  });
+
   if (!hasGsap) { $$('.manifesto__text .w').forEach(w => w.style.opacity = 1); return; }
   gsap.registerPlugin(ScrollTrigger);
 

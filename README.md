@@ -8,7 +8,7 @@ A 3D, scroll-animated landing page for a late-night Melbourne barbershop.
 - **The Kit**: barber tools and products, researched and explained
 - **Visit**: hours, address and booking CTA
 
-Static site, no build step: `index.html`, `styles.css`, `main.js`, `scene.js`, `assets/img/`.
+Static site, no build step. Every file (HTML, CSS, JS and the `.jpg` images) sits in one flat folder, so uploading all files via GitHub's "Add files via upload" works as-is.
 Libraries load from CDNs (Three.js 0.160, GSAP 3.12.5 + ScrollTrigger, Lenis 1.1.13).
 
 ## Run locally
