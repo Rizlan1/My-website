@@ -1,4 +1,4 @@
-# Nocturne Barbers — Fitzroy, Melbourne
+# Diamond Fade Barbers — Fitzroy, Melbourne
 
 A 3D, scroll-animated landing page for a late-night Melbourne barbershop.
 
